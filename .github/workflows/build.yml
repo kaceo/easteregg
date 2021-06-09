@@ -1,0 +1,39 @@
+name: Build Docker 
+
+on:
+  push:
+    branches: [ main ]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Build and push Docker images     
+        uses: docker/build-push-action@v2.5.0
+        with:
+          allow: # optional
+          build-args: # optional
+          builder: # optional
+          cache-from: # optional
+          cache-to: # optional
+          context: # optional
+          file: # optional
+          labels: # optional
+          load: # optional, default is false
+          network: # optional
+          no-cache: # optional, default is false
+          outputs: # optional
+          platforms: # optional
+          pull: # optional, default is false
+          push: # optional, default is false
+          secrets: # optional
+          secret-files: # optional
+          ssh: # optional
+          tags: # optional
+          target: # optional
+          github-token: # optional, default is ${{ github.token }}    
